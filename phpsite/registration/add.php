@@ -191,6 +191,7 @@ try {
                         break;
                     case 'success':
                         echo "<div class='success'>Student successfully added!</div>";
+                        header("Refresh: 2; url=home.php");
                         break;
                 } 
             }

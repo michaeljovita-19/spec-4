@@ -3,11 +3,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['username'];
     $password = $_POST['pass'];
 
-    if (empty($name) || empty($password)) {
-        header("Location: " . $_SERVER['HTTP_REFERER'] . "?status=empty");
-        exit();
-    }
-
     $servername = "localhost";
     $username = "root";  
     $dbpassword = "mike";  

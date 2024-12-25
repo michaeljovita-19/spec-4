@@ -1,21 +1,3 @@
-<?php
-function getTrueReferrer($url) {
-    if (strpos($url, '?') !== false) {
-        $parts = explode('?', $url);
-        return $parts[0];
-    }
-    return $url;
-}
-
-function getCurrentUrl() {
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
-    
-    $host = $_SERVER['HTTP_HOST'];
-    $uri = $_SERVER['REQUEST_URI'];
-
-    return $protocol . $host . $uri;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,21 +117,15 @@ function getCurrentUrl() {
         switch ($_GET['status']) {
             case 'invalid':
                 echo "<div class='error'>Invalid username or password!</div>";
-                break;
-            case 'empty':
-                echo "<div class='error'>Please fill in all fields!</div>";
+                header("Refresh: 3; url=login.php");
                 break;
             case 'success':
                 echo "<div class='success'>Login successful!</div>";
-                header("Refresh:1; url=home.php");
+                header("Refresh: 3; url=home.php");
                 break;
         }
     }
-    $res = getTrueReferrer(getCurrentUrl());
-    echo "<button><a href='" . htmlspecialchars($res) . "'>Back</a></button>";
     ?>
     </form>
-
-    
 </body>
 </html>

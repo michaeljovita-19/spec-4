@@ -113,15 +113,15 @@
         switch ($_GET['status']) {
             case 'error':
                 echo "<div class='error'>Error: Passwords do not match!</div>";
+                header("Refresh: 1; url=userreg.php");
                 break;
             case 'exists':
                 echo "<div class='error'>Error: Username already exists!</div>";
+                header("Refresh: 1; url=userreg.php");
                 break;
             case 'success':
                 echo "<div class='success'>Registration successful!</div>";
-                break;
-            case 'invalid_department':
-                echo "<div class='error'>Error: Invalid department!</div>";
+                header("Location: login.php");
                 break;
         }
     }
