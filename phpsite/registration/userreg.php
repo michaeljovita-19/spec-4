@@ -86,6 +86,15 @@
         .button-container button {
             width: 48%;
         }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-size: 14px;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
         
     </style>
 </head>
@@ -102,12 +111,11 @@
         <label for="verify">Verify Password:</label>
         <input type="password" id="verify" name="verify" required>
         
+        <a href="login.php">Login here.</a>
         <div class="button-container">
             <button type="submit">Submit</button>
             <button type="reset">Reset</button>
         </div>
-        
-        <button type="button" onclick="window.location.href='login.php'">Login</button>
         <?php
     if (isset($_GET['status'])) {
         switch ($_GET['status']) {

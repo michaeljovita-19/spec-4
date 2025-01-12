@@ -165,7 +165,7 @@ if (isset($_GET['studid'])) {
             
             <p>Are you sure you want to delete the following student?</p>
             
-            <form action="deleteprocess.php" method="post">
+            <form action="deletevalidate.php" method="post">
                 <label for="id">Student ID</label>
                 <input type="text" id="id" name="studid" value="<?php echo htmlspecialchars($student['studid']); ?>" readonly><br>
 

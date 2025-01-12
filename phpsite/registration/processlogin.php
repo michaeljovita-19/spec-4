@@ -15,8 +15,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sql->execute([$name]);
         $user = $sql->fetch(PDO::FETCH_ASSOC);
 
-        if ($user && $password === $user['password']) {
-            header("Location: " . $_SERVER['HTTP_REFERER'] . "?status=success");
+        if ($user && password_verify($password, $user['password'])) {
+            session_start();
+            $_SESSION['loggedin'] = true;
+            header("Location: home.php");
         } else {
             header("Location: " . $_SERVER['HTTP_REFERER'] . "?status=invalid");
         }

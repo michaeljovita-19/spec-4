@@ -178,7 +178,7 @@ try {
 
         <button type="submit"><strong>Add</strong></button>
         <button type="reset"><strong>Clear</strong></button>
-        <button type="button" onclick="window.location.href='home.php'">Back</button>
+        <a href="home.php"><button type="button">Back</button></a>
         <?php
             if (isset($_GET['status'])) {
                 $status = htmlspecialchars($_GET['status']);
@@ -191,7 +191,6 @@ try {
                         break;
                     case 'success':
                         echo "<div class='success'>Student successfully added!</div>";
-                        header("Refresh: 2; url=home.php");
                         break;
                 } 
             }

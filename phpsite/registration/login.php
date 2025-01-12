@@ -1,3 +1,8 @@
+<?php
+session_start();
+session_destroy();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,11 +122,11 @@
         switch ($_GET['status']) {
             case 'invalid':
                 echo "<div class='error'>Invalid username or password!</div>";
-                header("Refresh: 3; url=login.php");
+                header("Refresh: 2; url=login.php");
                 break;
             case 'success':
                 echo "<div class='success'>Login successful!</div>";
-                header("Refresh: 3; url=home.php");
+                header("Refresh: 2; url=home.php");
                 break;
         }
     }

@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "root";  
 $dbpassword = "mike";    
 
-if (isset($_POST['delete']) && isset($_POST['studid'])) {
+if (isset($_POST['studid'])) {
     $iid = $_POST['studid'];
 
     try {
@@ -17,11 +17,9 @@ if (isset($_POST['delete']) && isset($_POST['studid'])) {
             $sql = $conn->prepare("DELETE FROM students WHERE studid = ?");
             $sql->execute([$iid]);
 
-            header("Refresh: 1; url=home.php");
-            exit();
+            header("Location: home.php");
         } else {
             header("Location: " . $_SERVER['HTTP_REFERER'] . "?status=notfound");
-            exit();
         }
     } catch (PDOException $e) {
         echo "Database error: " . $e->getMessage();

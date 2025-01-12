@@ -23,8 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: " . $_SERVER['HTTP_REFERER'] . "?status=exists");
             exit();
         }
+
+        $pass = password_hash($password, PASSWORD_DEFAULT);
         $sql = $conn->prepare("INSERT INTO appusers (name, password) VALUES (?, ?)");
-        $sql->execute([$name, $password]);
+        $sql->execute([$name, $pass]);
         header("Location: " . $_SERVER['HTTP_REFERER'] . "?status=success");
         
     } catch (PDOException $e) {
